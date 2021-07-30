@@ -8,8 +8,9 @@
     <xsl:output method="xml" indent="no"/>
     <xsl:import href="xpath31.xslt"/>
     <xsl:variable name="inputs" as="element(input)+">
-        <input xmlns="">/TEI/text/body/descendant::div//tei:sp[@this = 'that' and
-            count(preceding-sibling::other) eq 3]</input>
+        <input xmlns="">for $stuff in /TEI/text/body/descendant::div//tei:sp[@this = 'that' and
+            count(preceding-sibling::other) eq 3] return if (true()) then distinct-values($stuff)
+            else 'nope'</input>
     </xsl:variable>
     <xsl:template name="xsl:initial-template">
         <!-- ============================================================ -->
@@ -29,32 +30,42 @@
             <head>
                 <title>XPath styling examples</title>
                 <style type="text/css">
-                    .StepExpr {
-                        color: blue;
-                    }
-                    .Predicate {
+                    <!-- Colors based on <oXygen/> defaults -->
+                    .PathExpr,
+                    .Predicate,
+                    .Punctuation {
                         color: black;
+                    }
+                    .StepExpr {
+                        color: #0000E6;
                     }
                     .ValueComp,
                     .GeneralComp,
-                    .ValueComp,
                     .AndExpr,
                     .OrExpr {
-                        color: darkolivegreen;
+                        color: #787800;
                     }
-                    .FunctionName {
-                        color: darkgreen;
+                    .FunctionEQName {
+                        color: #004000;
+                        font-style: italic;
                     }
                     .StringLiteral,
                     .NumericLiteral {
-                        color: indigo;
+                        color: #323296;
                     }
                     .AbbrevForwardStep {
-                        color: darkorange;
+                        color: #F08246;
                     }
                     .ForwardAxis,
                     .ReverseAxis {
-                        color: darkturquoise
+                        color: #009696
+                    }
+                    .VarRef,
+                    .SimpleForBinding {
+                        color: #963296;
+                    }
+                    .Keyword {
+                        color: #0096C8;
                     }</style>
             </head>
             <body>
@@ -85,15 +96,37 @@
             | AbbrevForwardStep[node()[1][self::TOKEN][. eq '@']]
             | AndExpr
             | ForwardAxis
-            | FunctionName[not(ancestor::AbbrevForwardStep or ancestor::ReverseStep or ancestor::ForwardStep)]
+            | FunctionEQName
             | GeneralComp
             | NumericLiteral
             | OrExpr
+            | PathExpr
+            | Predicate
             | ReverseAxis
             | StringLiteral
             | ValueComp
+            | VarRef
             " mode="style-xpath">
         <span class="{local-name()}">
+            <xsl:apply-templates mode="#current"/>
+        </span>
+    </xsl:template>
+    <xsl:template match="SimpleForBinding/TOKEN | SimpleForBinding/VarName" mode="style-xpath">
+        <span class="SimpleForBinding">
+            <xsl:apply-templates mode="#current"/>
+        </span>
+    </xsl:template>
+    <xsl:template match="
+            SimpleForClause/TOKEN[. eq 'for']
+            | ForExpr/TOKEN[. eq 'return']
+            | IfExpr/TOKEN[. = ('if', 'then', 'else')]
+            " mode="style-xpath">
+        <span class="Keyword">
+            <xsl:apply-templates mode="#current"/>
+        </span>
+    </xsl:template>
+    <xsl:template match="FunctionCall/ArgumentList/TOKEN" mode="style-xpath">
+        <span class="Punctuation">
             <xsl:apply-templates mode="#current"/>
         </span>
     </xsl:template>

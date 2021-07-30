@@ -1,30 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?><html xmlns="http://www.w3.org/1999/xhtml"><head><title>XPath styling examples</title><style type="text/css">
-                    .StepExpr {
-                        color: blue;
-                    }
-                    .Predicate {
+                    
+                    .PathExpr,
+                    .Predicate,
+                    .Punctuation {
                         color: black;
+                    }
+                    .StepExpr {
+                        color: #0000E6;
                     }
                     .ValueComp,
                     .GeneralComp,
-                    .ValueComp,
                     .AndExpr,
                     .OrExpr {
-                        color: darkolivegreen;
+                        color: #787800;
                     }
-                    .FunctionName {
-                        color: darkgreen;
+                    .FunctionEQName {
+                        color: #004000;
+                        font-style: italic;
                     }
                     .StringLiteral,
                     .NumericLiteral {
-                        color: indigo;
+                        color: #323296;
                     }
                     .AbbrevForwardStep {
-                        color: darkorange;
+                        color: #F08246;
                     }
                     .ForwardAxis,
                     .ReverseAxis {
-                        color: darkturquoise
-                    }</style></head><body><h1>XPath styling examples</h1><p><code>/TEI/text/body/descendant::div//tei:sp[@this = 'that' and
-            count(preceding-sibling::other) eq 3]</code><br/><code><span class="OrExpr"><span class="AndExpr">/<span class="StepExpr">TEI</span>/<span class="StepExpr">text</span>/<span class="StepExpr">body</span>/<span class="StepExpr"><span class="ForwardAxis">descendant::</span>div</span>//<span class="StepExpr">tei:sp[<span class="OrExpr"><span class="AndExpr"><span class="StepExpr"><span class="AbbrevForwardStep">@this</span> </span><span class="GeneralComp">=</span> <span class="StepExpr"><span class="StringLiteral">'that'</span></span> and
-            <span class="StepExpr"><span class="FunctionName">count</span>(<span class="OrExpr"><span class="AndExpr"><span class="StepExpr"><span class="ReverseAxis">preceding-sibling::</span>other</span></span></span>)</span> <span class="ValueComp">eq</span> <span class="StepExpr"><span class="NumericLiteral">3</span></span></span></span>]</span></span></span></code></p></body></html>
+                        color: #009696
+                    }
+                    .VarRef,
+                    .SimpleForBinding {
+                        color: #963296;
+                    }
+                    .Keyword {
+                        color: #0096C8;
+                    }</style></head><body><h1>XPath styling examples</h1><p><code>for $stuff in /TEI/text/body/descendant::div//tei:sp[@this = 'that' and
+            count(preceding-sibling::other) eq 3] return if (true()) then distinct-values($stuff)
+            else 'nope'</code><br/><code><span class="Keyword">for</span> <span class="SimpleForBinding">$</span><span class="SimpleForBinding">stuff</span> <span class="SimpleForBinding">in</span> <span class="OrExpr"><span class="AndExpr"><span class="PathExpr">/<span class="StepExpr">TEI</span>/<span class="StepExpr">text</span>/<span class="StepExpr">body</span>/<span class="StepExpr"><span class="ForwardAxis">descendant::</span>div</span>//<span class="StepExpr">tei:sp<span class="Predicate">[<span class="OrExpr"><span class="AndExpr"><span class="PathExpr"><span class="StepExpr"><span class="AbbrevForwardStep">@this</span> </span></span><span class="GeneralComp">=</span> <span class="PathExpr"><span class="StepExpr"><span class="StringLiteral">'that'</span></span></span> and
+            <span class="PathExpr"><span class="StepExpr"><span class="FunctionEQName">count</span><span class="Punctuation">(</span><span class="OrExpr"><span class="AndExpr"><span class="PathExpr"><span class="StepExpr"><span class="ReverseAxis">preceding-sibling::</span>other</span></span></span></span><span class="Punctuation">)</span></span></span> <span class="ValueComp">eq</span> <span class="PathExpr"><span class="StepExpr"><span class="NumericLiteral">3</span></span></span></span></span>]</span></span></span></span></span> <span class="Keyword">return</span> <span class="Keyword">if</span> (<span class="OrExpr"><span class="AndExpr"><span class="PathExpr"><span class="StepExpr"><span class="FunctionEQName">true</span><span class="Punctuation">(</span><span class="Punctuation">)</span></span></span></span></span>) <span class="Keyword">then</span> <span class="OrExpr"><span class="AndExpr"><span class="PathExpr"><span class="StepExpr"><span class="FunctionEQName">distinct-values</span><span class="Punctuation">(</span><span class="OrExpr"><span class="AndExpr"><span class="PathExpr"><span class="StepExpr"><span class="VarRef">$stuff</span></span></span></span></span><span class="Punctuation">)</span></span></span></span></span>
+            <span class="Keyword">else</span> <span class="OrExpr"><span class="AndExpr"><span class="PathExpr"><span class="StepExpr"><span class="StringLiteral">'nope'</span></span></span></span></span></code></p></body></html>
