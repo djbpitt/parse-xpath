@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns="http://www.w3.org/1999/xhtml"><head><title>XPath styling examples</title><style type="text/css">
+                    .StepExpr {
+                        color: blue;
+                    }
+                    .Predicate {
+                        color: black;
+                    }
+                    .ValueComp,
+                    .GeneralComp,
+                    .ValueComp,
+                    .AndExpr,
+                    .OrExpr {
+                        color: darkolivegreen;
+                    }
+                    .FunctionName {
+                        color: darkgreen;
+                    }
+                    .StringLiteral,
+                    .NumericLiteral {
+                        color: indigo;
+                    }
+                    .AbbrevForwardStep {
+                        color: darkorange;
+                    }
+                    .ForwardAxis,
+                    .ReverseAxis {
+                        color: darkturquoise
+                    }</style></head><body><h1>XPath styling examples</h1><p><code>/TEI/text/body/descendant::div//tei:sp[@this = 'that' and
+            count(preceding-sibling::other) eq 3]</code><br/><code><span class="OrExpr"><span class="AndExpr">/<span class="StepExpr">TEI</span>/<span class="StepExpr">text</span>/<span class="StepExpr">body</span>/<span class="StepExpr"><span class="ForwardAxis">descendant::</span>div</span>//<span class="StepExpr">tei:sp[<span class="OrExpr"><span class="AndExpr"><span class="StepExpr"><span class="AbbrevForwardStep">@this</span> </span><span class="GeneralComp">=</span> <span class="StepExpr"><span class="StringLiteral">'that'</span></span> and
+            <span class="StepExpr"><span class="FunctionName">count</span>(<span class="OrExpr"><span class="AndExpr"><span class="StepExpr"><span class="ReverseAxis">preceding-sibling::</span>other</span></span></span>)</span> <span class="ValueComp">eq</span> <span class="StepExpr"><span class="NumericLiteral">3</span></span></span></span>]</span></span></span></code></p></body></html>
