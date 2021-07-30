@@ -10,7 +10,7 @@
     <xsl:variable name="inputs" as="element(input)+">
         <input xmlns="">for $stuff in /TEI/text/body/descendant::div//tei:sp[@this = 'that' and
             count(preceding-sibling::other) eq 3] return if (true()) then distinct-values($stuff)
-            else 'nope'</input>
+            else reverse (/descendant::tei:stuff) ! name() => distinct-values()</input>
     </xsl:variable>
     <xsl:template name="xsl:initial-template">
         <!-- ============================================================ -->
@@ -42,7 +42,9 @@
                     .ValueComp,
                     .GeneralComp,
                     .AndExpr,
-                    .OrExpr {
+                    .OrExpr,
+                    .Arrow,
+                    .SimpleMapExpr {
                         color: #787800;
                     }
                     .FunctionEQName {
@@ -103,6 +105,7 @@
             | PathExpr
             | Predicate
             | ReverseAxis
+            | SimpleMapExpr
             | StringLiteral
             | ValueComp
             | VarRef
@@ -127,6 +130,11 @@
     </xsl:template>
     <xsl:template match="FunctionCall/ArgumentList/TOKEN" mode="style-xpath">
         <span class="Punctuation">
+            <xsl:apply-templates mode="#current"/>
+        </span>
+    </xsl:template>
+    <xsl:template match="ArrowExpr/TOKEN" mode="style-xpath">
+        <span class="Arrow">
             <xsl:apply-templates mode="#current"/>
         </span>
     </xsl:template>

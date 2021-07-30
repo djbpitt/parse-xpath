@@ -646,9 +646,104 @@
                                                                                  <StepExpr>
                                                                                     <PostfixExpr>
                                                                                        <PrimaryExpr>
-                                                                                          <Literal>
-                                                                                             <StringLiteral>'nope'</StringLiteral>
-                                                                                          </Literal>
+                                                                                          <FunctionCall>
+                                                                                             <FunctionEQName>
+                                                                                                <FunctionName>
+                                                                                                   <QName>reverse</QName>
+                                                                                                </FunctionName>
+                                                                                             </FunctionEQName>
+                                                                                             <ArgumentList>
+                                                                                                <TOKEN>(</TOKEN>
+                                                                                                <Argument>
+                                                                                                   <ExprSingle>
+                                                                                                      <OrExpr>
+                                                                                                         <AndExpr>
+                                                                                                            <ComparisonExpr>
+                                                                                                               <StringConcatExpr>
+                                                                                                                  <RangeExpr>
+                                                                                                                     <AdditiveExpr>
+                                                                                                                        <MultiplicativeExpr>
+                                                                                                                           <UnionExpr>
+                                                                                                                              <IntersectExceptExpr>
+                                                                                                                                 <InstanceofExpr>
+                                                                                                                                    <TreatExpr>
+                                                                                                                                       <CastableExpr>
+                                                                                                                                          <CastExpr>
+                                                                                                                                             <ArrowExpr>
+                                                                                                                                                <UnaryExpr>
+                                                                                                                                                   <ValueExpr>
+                                                                                                                                                      <SimpleMapExpr>
+                                                                                                                                                         <PathExpr>
+                                                                                                                                                            <TOKEN>/</TOKEN>
+                                                                                                                                                            <RelativePathExpr>
+                                                                                                                                                               <StepExpr>
+                                                                                                                                                                  <AxisStep>
+                                                                                                                                                                     <ForwardStep>
+                                                                                                                                                                        <ForwardAxis>
+                                                                                                                                                                           <TOKEN>descendant</TOKEN>
+                                                                                                                                                                           <TOKEN>::</TOKEN>
+                                                                                                                                                                        </ForwardAxis>
+                                                                                                                                                                        <NodeTest>
+                                                                                                                                                                           <NameTest>
+                                                                                                                                                                              <EQName>
+                                                                                                                                                                                 <QName>
+                                                                                                                                                                                    <FunctionName>
+                                                                                                                                                                                       <QName>tei:stuff</QName>
+                                                                                                                                                                                    </FunctionName>
+                                                                                                                                                                                 </QName>
+                                                                                                                                                                              </EQName>
+                                                                                                                                                                           </NameTest>
+                                                                                                                                                                        </NodeTest>
+                                                                                                                                                                     </ForwardStep>
+                                                                                                                                                                     <PredicateList/>
+                                                                                                                                                                  </AxisStep>
+                                                                                                                                                               </StepExpr>
+                                                                                                                                                            </RelativePathExpr>
+                                                                                                                                                         </PathExpr>
+                                                                                                                                                      </SimpleMapExpr>
+                                                                                                                                                   </ValueExpr>
+                                                                                                                                                </UnaryExpr>
+                                                                                                                                             </ArrowExpr>
+                                                                                                                                          </CastExpr>
+                                                                                                                                       </CastableExpr>
+                                                                                                                                    </TreatExpr>
+                                                                                                                                 </InstanceofExpr>
+                                                                                                                              </IntersectExceptExpr>
+                                                                                                                           </UnionExpr>
+                                                                                                                        </MultiplicativeExpr>
+                                                                                                                     </AdditiveExpr>
+                                                                                                                  </RangeExpr>
+                                                                                                               </StringConcatExpr>
+                                                                                                            </ComparisonExpr>
+                                                                                                         </AndExpr>
+                                                                                                      </OrExpr>
+                                                                                                   </ExprSingle>
+                                                                                                </Argument>
+                                                                                                <TOKEN>)</TOKEN>
+                                                                                             </ArgumentList>
+                                                                                          </FunctionCall>
+                                                                                       </PrimaryExpr>
+                                                                                    </PostfixExpr>
+                                                                                 </StepExpr>
+                                                                              </RelativePathExpr>
+                                                                           </PathExpr>
+                                                                           <TOKEN>!</TOKEN>
+                                                                           <PathExpr>
+                                                                              <RelativePathExpr>
+                                                                                 <StepExpr>
+                                                                                    <PostfixExpr>
+                                                                                       <PrimaryExpr>
+                                                                                          <FunctionCall>
+                                                                                             <FunctionEQName>
+                                                                                                <FunctionName>
+                                                                                                   <QName>name</QName>
+                                                                                                </FunctionName>
+                                                                                             </FunctionEQName>
+                                                                                             <ArgumentList>
+                                                                                                <TOKEN>(</TOKEN>
+                                                                                                <TOKEN>)</TOKEN>
+                                                                                             </ArgumentList>
+                                                                                          </FunctionCall>
                                                                                        </PrimaryExpr>
                                                                                     </PostfixExpr>
                                                                                  </StepExpr>
@@ -657,6 +752,20 @@
                                                                         </SimpleMapExpr>
                                                                      </ValueExpr>
                                                                   </UnaryExpr>
+                                                                  <TOKEN>=&gt;</TOKEN>
+                                                                  <ArrowFunctionSpecifier>
+                                                                     <EQName>
+                                                                        <QName>
+                                                                           <FunctionName>
+                                                                              <QName>distinct-values</QName>
+                                                                           </FunctionName>
+                                                                        </QName>
+                                                                     </EQName>
+                                                                  </ArrowFunctionSpecifier>
+                                                                  <ArgumentList>
+                                                                     <TOKEN>(</TOKEN>
+                                                                     <TOKEN>)</TOKEN>
+                                                                  </ArgumentList>
                                                                </ArrowExpr>
                                                             </CastExpr>
                                                          </CastableExpr>
