@@ -36,7 +36,7 @@
                     .Punctuation {
                         color: black;
                     }
-                    .StepExpr {
+                    .StepExpr { /* bright blue */
                         color: #0000E6;
                     }
                     .ValueComp,
@@ -44,29 +44,29 @@
                     .AndExpr,
                     .OrExpr,
                     .Arrow,
-                    .SimpleMapExpr {
+                    .SimpleMapExpr { /* olive green */
                         color: #787800;
                     }
-                    .FunctionEQName {
+                    .FunctionEQName { /* dark green */
                         color: #004000;
                         font-style: italic;
                     }
                     .StringLiteral,
-                    .NumericLiteral {
+                    .NumericLiteral { /* purplish blue */
                         color: #323296;
                     }
-                    .AbbrevForwardStep {
+                    .AbbrevForwardStep { /* orange */
                         color: #F08246;
                     }
                     .ForwardAxis,
-                    .ReverseAxis {
+                    .ReverseAxis { /* teal */
                         color: #009696
                     }
                     .VarRef,
-                    .SimpleForBinding {
+                    .SimpleForBinding { /* fuchsia */
                         color: #963296;
                     }
-                    .Keyword {
+                    .Keyword { /* turquoise */
                         color: #0096C8;
                     }</style>
             </head>
@@ -114,13 +114,15 @@
             <xsl:apply-templates mode="#current"/>
         </span>
     </xsl:template>
-    <xsl:template match="SimpleForBinding/TOKEN | SimpleForBinding/VarName" mode="style-xpath">
+    <xsl:template match="SimpleForBinding/TOKEN[. eq '$'] | SimpleForBinding/VarName"
+        mode="style-xpath">
         <span class="SimpleForBinding">
             <xsl:apply-templates mode="#current"/>
         </span>
     </xsl:template>
     <xsl:template match="
             SimpleForClause/TOKEN[. eq 'for']
+            | SimpleForBinding/TOKEN[. eq 'in']
             | ForExpr/TOKEN[. eq 'return']
             | IfExpr/TOKEN[. = ('if', 'then', 'else')]
             " mode="style-xpath">
@@ -128,7 +130,7 @@
             <xsl:apply-templates mode="#current"/>
         </span>
     </xsl:template>
-    <xsl:template match="FunctionCall/ArgumentList/TOKEN" mode="style-xpath">
+    <xsl:template match="ArgumentList/TOKEN" mode="style-xpath">
         <span class="Punctuation">
             <xsl:apply-templates mode="#current"/>
         </span>
