@@ -36,28 +36,14 @@
                     .Punctuation {
                       color: black;
                     }
-                    .StepExpr {
-                      color: #0000E6;
+                    .StepExpr { /* bright blue */
+                        color: #0000E6;
                     }
                     .ValueComp,
                     .GeneralComp,
                     .AndExpr,
                     .OrExpr,
                     .Arrow,
-                    .SimpleMapExpr {
-                      color: #787800;
-                    }
-                    .FunctionEQName {
-                      color: #004000;
-                      font-style: italic;
-                    }
-                    .StringLiteral,
-                    .NumericLiteral {
-                      color: #323296;
-                    }
-                    .AbbrevForwardStep {
-                      color: #F08246;
-                    }
                     .ForwardAxis,
                     .ReverseAxis {
                       color: #009696
@@ -68,6 +54,30 @@
                     }
                     .Keyword {
                       color: #0096C8;
+                    .SimpleMapExpr { /* olive green */
+                        color: #787800;
+                    }
+                    .FunctionEQName { /* dark green */
+                        color: #004000;
+                        font-style: italic;
+                    }
+                    .StringLiteral,
+                    .NumericLiteral { /* purplish blue */
+                        color: #323296;
+                    }
+                    .AbbrevForwardStep { /* orange */
+                        color: #F08246;
+                    }
+                    .ForwardAxis,
+                    .ReverseAxis { /* teal */
+                        color: #009696
+                    }
+                    .VarRef,
+                    .SimpleForBinding { /* fuchsia */
+                        color: #963296;
+                    }
+                    .Keyword { /* turquoise */
+                        color: #0096C8;
                     }</style>
             </head>
             <body>
@@ -121,13 +131,15 @@
             <xsl:apply-templates mode="#current"/>
         </span>
     </xsl:template>
-    <xsl:template match="SimpleForBinding/TOKEN | SimpleForBinding/VarName" mode="style-xpath">
+    <xsl:template match="SimpleForBinding/TOKEN[. eq '$'] | SimpleForBinding/VarName"
+        mode="style-xpath">
         <span class="SimpleForBinding">
             <xsl:apply-templates mode="#current"/>
         </span>
     </xsl:template>
     <xsl:template match="
             SimpleForClause/TOKEN[. eq 'for']
+            | SimpleForBinding/TOKEN[. eq 'in']
             | ForExpr/TOKEN[. eq 'return']
             | IfExpr/TOKEN[. = ('if', 'then', 'else')]
             " mode="style-xpath">
@@ -135,7 +147,7 @@
             <xsl:apply-templates mode="#current"/>
         </span>
     </xsl:template>
-    <xsl:template match="FunctionCall/ArgumentList/TOKEN" mode="style-xpath">
+    <xsl:template match="ArgumentList/TOKEN" mode="style-xpath">
         <span class="Punctuation">
             <xsl:apply-templates mode="#current"/>
         </span>
