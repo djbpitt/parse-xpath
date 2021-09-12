@@ -34,10 +34,10 @@
                     .PathExpr,
                     .Predicate,
                     .Punctuation {
-                        color: black;
+                      color: black;
                     }
                     .StepExpr {
-                        color: #0000E6;
+                      color: #0000E6;
                     }
                     .ValueComp,
                     .GeneralComp,
@@ -45,41 +45,48 @@
                     .OrExpr,
                     .Arrow,
                     .SimpleMapExpr {
-                        color: #787800;
+                      color: #787800;
                     }
                     .FunctionEQName {
-                        color: #004000;
-                        font-style: italic;
+                      color: #004000;
+                      font-style: italic;
                     }
                     .StringLiteral,
                     .NumericLiteral {
-                        color: #323296;
+                      color: #323296;
                     }
                     .AbbrevForwardStep {
-                        color: #F08246;
+                      color: #F08246;
                     }
                     .ForwardAxis,
                     .ReverseAxis {
-                        color: #009696
+                      color: #009696
                     }
                     .VarRef,
                     .SimpleForBinding {
-                        color: #963296;
+                      color: #963296;
                     }
                     .Keyword {
-                        color: #0096C8;
+                      color: #0096C8;
                     }</style>
             </head>
             <body>
                 <h1>XPath styling examples</h1>
                 <xsl:for-each select="$inputs">
-                    <p>
-                        <code>
-                            <xsl:value-of select="."/>
-                        </code>
-                        <br/>
-                        <xsl:apply-templates select="p:parse-XPath(.)" mode="style-xpath"/>
-                    </p>
+                    <div>
+                        <h2>
+                            <xsl:text>Example: </xsl:text>
+                            <xsl:number/>
+                        </h2>
+                        <p>
+                            <code>
+                                <xsl:value-of select="."/>
+                            </code>
+                        </p>
+                        <p>
+                            <xsl:apply-templates select="p:parse-XPath(.)" mode="style-xpath"/>
+                        </p>
+                    </div>
                 </xsl:for-each>
             </body>
         </html>
